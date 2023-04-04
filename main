@@ -1,0 +1,22 @@
+print('\33[36m-\33[m'*18)
+print('Lojas Portella')
+print('\33[36m-\33[m'*18)
+sum = count_thousand = cheap = price = 0
+cheap_product = ''
+while True:
+    cheap = price
+    products_name = str(input('Nome do Produto: '))
+    price = float(input('Preço: R$ '))
+    doyoucontinue = str(input('Quer continuar? [S/N] ')).strip().upper()[0]
+    sum += price
+    if price >= 1000:
+        count_thousand += 1
+    if price <= cheap:
+        cheap = price
+        cheap_product = products_name
+    if doyoucontinue == 'N':
+        break
+print('-------FIM DO PROGRAMA------')
+print(f'''O total da compra foi R${sum}
+Temos {count_thousand} produtos custando mais de R$1000.00
+O produto mais barato foi {cheap_product} que custa {cheap} R$''')
